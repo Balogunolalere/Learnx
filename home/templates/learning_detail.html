@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <h2>{{  topic.name }}</h2>
+    <h5>{{  topic.description }}</h5>
+  <div class="panel panel-default">
+    <div class="panel-body">{{  topic.body.html|safe  }}</div>
+      <div class="card-body"><a href="{{  topic.upload_lecture.url }}"><p>{{  topic.upload_lecture }}</p></a></div>
+  </div>
+</div>
+{% endblock %}

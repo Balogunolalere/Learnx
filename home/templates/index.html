@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'images/logo.jpg' %}">
+    <title>Learnx</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    @media(max-width: 500px) {
+      .reverse-columns {
+        flex-direction: column-reverse;
+        display: flex;
+      }
+    }
+
+    .titled {
+      font-family: 'Merriweather', serif !important;
+      font-size: 58px !important;
+      font-weight: 400 !important;
+      line-height: 64px !important;
+    }
+
+    .subtitled {
+      font-family: 'Merriweather', serif !important;
+      font-size: 22px !important;
+      font-weight: 400 !important;
+      line-height: 36px !important;
+    }
+  </style>
+</head>
+
+<body>
+ <nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
+  <div class="container">
+    
+    <!-- logo or branding image on left side -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="30" height="30">
+        <strong>Learnx</strong>
+      </a>
+      <div class="navbar-burger"  data-target="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
+    <div class="navbar-menu" id="navbar-menu">
+      <!-- navbar items | left side -->
+      <!-- <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Docs</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="#">Overview</a>
+              <a class="navbar-item" href="#">Elements</a>
+              <a class="navbar-item" href="#">Components</a>
+              <hr class="navbar-divider">
+              <div class="navbar-item"> Version 0.1.0</div>
+            </div>
+          </div>
+      </div> -->
+
+      <!-- navbar items | right side -->
+      <div class="navbar-end">
+        <a class="navbar-item is-active" href="{% url 'index' %}"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+        <a class="navbar-item is-active" href="{% url 'courses' %}"><i class="fa fa-university"></i>&nbsp;&nbsp;Courses</a>
+
+        <a class="navbar-item is-active" href="{% url 'learning' %}"><i class="fa fa-graduation-cap"></i> &nbsp;&nbsp;Learning</a>
+        <a class="navbar-item is-active" href="{% url 'login' %}"><i class="fa fa-user"></i> &nbsp;&nbsp;Teacher Login</a>
+        <a class="navbar-item is-active" href="{% url 'login' %}"><i class="fa fa-user-o"></i> &nbsp;&nbsp;Student Login</a>
+                        
+
+                        {% if user.is_authenticated %}
+
+        <a class="navbar-item is-active" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> &nbsp;&nbsp;Log Out</a>
+                        {% endif %}
+
+    </div>
+  </div>
+</nav>
+  <!-- Hero del producto -->
+  <section class="hero is-white is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns  is-vcentered reverse-columns">
+          <div class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-5-desktop is-offset-1-desktop
+          is-5-widescreen is-offset-1-widescreen
+          is-5-fullhd is-offset-1-fullhd" data-aos="fade-down">
+            <h1 class="title titled is-1 mb-6">
+             For Teachers
+            </h1>
+            <h2 class="subtitled subtitle">
+              “Teaching kids to count is fine, but teaching them what counts is best.”
+            </h2>
+            <div class="buttons">
+              <a class="button is-dark" href="{% url 'login' %}">Login</a>
+              <a class="button is-light" href="{% url 'index' %}">Home</a>
+            </div>
+          </div>
+          <div data-aos="fade-right" class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-4-desktop is-offset-1-desktop
+          is-4-widescreen is-offset-1-widescreen
+          is-4-fullhd is-offset-1-fullhd">
+            <figure class="image is-square">
+              <img src="https://pp.netclipart.com/pp/s/253-2534282_miles-tax-animated-college-student-png.png">
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-white is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns  is-vcentered">
+          <div data-aos="fade-left" class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-4-desktop is-offset-1-desktop
+          is-4-widescreen is-offset-1-widescreen
+          is-4-fullhd is-offset-1-fullhd">
+            <figure class="image is-square">
+              <img src="https://i0.wp.com/group.ba/wp-content/uploads/2018/03/animated-international-students-1.jpg?w=300">
+            </figure>
+          </div>
+          <div data-aos="fade-down" class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-5-desktop is-offset-1-desktop
+          is-5-widescreen is-offset-1-widescreen
+          is-5-fullhd is-offset-1-fullhd">
+            <h1 class="titled title is-1 mb-6">
+              For Students
+            </h1>
+            <h2 class="subtitled subtitle">
+              “Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.”
+            </h2>
+            <div class="buttons">
+              <a class="button is-dark" href="{% url 'login' %}">Login</a>
+              <a class="button is-light" href="{% url 'index' %}">Home</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-white is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns  is-vcentered reverse-columns">
+          <div data-aos="fade-right" class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-5-desktop is-offset-1-desktop
+          is-5-widescreen is-offset-1-widescreen
+          is-5-fullhd is-offset-1-fullhd">
+            <h1 class="title titled is-1 mb-6">
+              The ultimate learning experience
+            </h1>
+            <h2 class="subtitle subtitled">
+               “Anyone who stops learning is old, whether at twenty or eighty.”
+            </h2>
+          </div>
+          <div data-aos="fade-down" class="column
+          is-10-mobile is-offset-1-mobile
+          is-10-tablet is-offset-1-tablet
+          is-4-desktop is-offset-1-desktop
+          is-4-widescreen is-offset-1-widescreen
+          is-4-fullhd is-offset-1-fullhd" data-aos="fade-up">
+            <figure class="image is-square">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPvvhqypLcfgvSe9KmpEHF-OG-k9MqBCe6HB7w6mLdmr3zwTPmJXEQ9fx7Igfucsj8N5M&usqp=CAU">
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-medium has-text-centered">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div data-aos="zoom-in-up" class="column is-8">
+            <h1 class="title titled is-1 mb-6">
+              The number 1 place to <span id="typewriter"></span>
+            </h1>
+            <h2 class="subtitle subtitled">
+              
+            </h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.13.1/core.min.js"></script>
+  <script>
+    new Typewriter('#typewriter', {
+      strings: ['Learn', 'Educate', 'Discover', 'Develop'],
+      autoStart: true,
+      loop: true,
+    });
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true
+    });
+  </script>
+  <!-- Bulma Navbar JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Get all "navbar-burger" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+
+            // Get the target from the "data-target" attribute
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+
+            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>
